@@ -1,7 +1,6 @@
 package com.leandi.phonebook.backend.entity;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -28,17 +27,17 @@ public class Contact extends AbstractEntity implements Cloneable {
     @NotNull
     private Contact.Status status;
 
-    @Email
+    
     @NotNull
     @NotEmpty
-    private String email = "";
+    private String phoneNumber = "";
 
-    public String getEmail() {
-        return email;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public Status getStatus() {

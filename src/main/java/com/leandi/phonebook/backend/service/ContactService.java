@@ -59,7 +59,8 @@ public class ContactService {
     public void populateTestData() {
         if (companyRepository.count() == 0) {
             companyRepository.saveAll(
-                Stream.of("Path-Way Electronics", "E-Tech Management", "Path-E-Tech Management")
+                Stream.of("SLUŽBA ZA DIGITALNI RAZVOJ IN PISARNIŠKO POSLOVANJE", "URAD ZA PROSTORSKI RAZVOJ IN NEPREMIČNINE",
+                        "SLUŽBA ZA INŠPEKCIJO, REDARSTVO, ZAŠČITO IN REŠEVANJE")
                     .map(Company::new)
                     .collect(Collectors.toList()));
         }
@@ -82,8 +83,8 @@ public class ContactService {
                         contact.setLastName(split[1]);
                         contact.setCompany(companies.get(r.nextInt(companies.size())));
                         contact.setStatus(Contact.Status.values()[r.nextInt(Contact.Status.values().length)]);
-                        String email = (contact.getFirstName() + "." + contact.getLastName() + "@" + contact.getCompany().getName().replaceAll("[\\s-]", "") + ".com").toLowerCase();
-                        contact.setEmail(email);
+                        String phoneNumber = "6385";
+                        contact.setPhoneNumber(phoneNumber);
                         return contact;
                     }).collect(Collectors.toList()));
         }

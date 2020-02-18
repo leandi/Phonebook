@@ -21,11 +21,11 @@ import java.util.List;
 
 public class ContactForm extends FormLayout {
 
-    TextField firstName = new TextField("First name");
-    TextField lastName = new TextField("Last name");
-    EmailField email = new EmailField("Email");
+    TextField firstName = new TextField("Ime");
+    TextField lastName = new TextField("Priimek");
+    TextField phoneNumber = new TextField("Telefonska št.");
     ComboBox<Contact.Status> status = new ComboBox<>("Status");
-    ComboBox<Company> company = new ComboBox<>("Company");
+    ComboBox<Company> company = new ComboBox<>("Urad ali služba");
 
     Button save = new Button("Save");
     Button delete = new Button("Delete");
@@ -44,7 +44,7 @@ public class ContactForm extends FormLayout {
         add(
             firstName,
             lastName,
-            email,
+            phoneNumber,
             status,
             company,
             createButtonsLayout()
