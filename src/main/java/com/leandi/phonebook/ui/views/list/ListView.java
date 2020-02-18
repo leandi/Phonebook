@@ -82,6 +82,7 @@ public class ListView extends VerticalLayout {
         grid.setSizeFull();
         grid.removeColumnByKey("company");
         grid.setColumns("firstName", "lastName", "phoneNumber", "status");
+        //grid.addColumn(Contact::getFirstName).setHeader("ime").setKey("firstName");
         grid.addColumn(contact -> {
            Company company = contact.getCompany();
            return company == null ? "-" : company.getName();

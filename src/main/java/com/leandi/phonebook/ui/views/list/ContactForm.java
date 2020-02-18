@@ -27,9 +27,9 @@ public class ContactForm extends FormLayout {
     ComboBox<Contact.Status> status = new ComboBox<>("Status");
     ComboBox<Company> company = new ComboBox<>("Urad ali služba");
 
-    Button save = new Button("Save");
-    Button delete = new Button("Delete");
-    Button close = new Button("Cancel");
+    Button save = new Button("Shrani");
+    Button delete = new Button("Zbriši");
+    Button close = new Button("Prekliči");
 
     Binder<Contact> binder = new BeanValidationBinder<>(Contact.class);
 
