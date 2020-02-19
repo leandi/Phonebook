@@ -7,6 +7,7 @@ import com.leandi.phonebook.backend.service.ContactService;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
@@ -81,12 +82,15 @@ public class ListView extends VerticalLayout {
         grid.addClassName("contact-grid");
         grid.setSizeFull();
         grid.removeColumnByKey("company");
-        grid.setColumns("firstName", "lastName", "phoneNumber", "status");
-        //grid.addColumn(Contact::getFirstName).setHeader("ime").setKey("firstName");
+        grid.setColumns("firstName", "lastName", "phoneNumber");
+//        grid.setColumns();
+//        grid.addColumn(Contact::getFirstName).setHeader(new H1("imr"));
+//        grid.addColumn(Contact::getLastName).setHeader("Priimek");
+
         grid.addColumn(contact -> {
            Company company = contact.getCompany();
            return company == null ? "-" : company.getName();
-        }).setHeader("Company");
+        }).setSortable(true).setHeader("company");
 
         grid.getColumns().forEach(col -> col.setAutoWidth(true));
 
