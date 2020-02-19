@@ -19,6 +19,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	private static final String LOGIN_FAILURE_URL = "/login?error";
 	private static final String LOGIN_URL = "/login";
 	private static final String LOGOUT_SUCCESS_URL = "/login";
+	//private static final String DASHBOARD = "/dashboard";
 
 	/**
 	 * Require login to access internal pages and configure login form.
@@ -44,6 +45,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				// Configure the login page.
 				.and().formLogin()
                         .loginPage(LOGIN_URL).permitAll()
+						//.loginPage(DASHBOARD).permitAll()
                         .loginProcessingUrl(LOGIN_PROCESSING_URL)
 				        .failureUrl(LOGIN_FAILURE_URL)
 
@@ -93,6 +95,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 				// (development mode) H2 debugging console
 				"/h2-console/**",
+		//		"/dashboard/**",
 
 				// (production mode) static resources
 				"/frontend-es5/**", "/frontend-es6/**");
