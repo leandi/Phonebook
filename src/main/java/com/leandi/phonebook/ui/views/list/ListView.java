@@ -86,7 +86,7 @@ public class ListView extends VerticalLayout {
 //        grid.setColumns();
 //        grid.addColumn(Contact::getFirstName).setHeader(new H1("imr"));
 //        grid.addColumn(Contact::getLastName).setHeader("Priimek");
-
+// to je branch read only mode
         grid.addColumn(contact -> {
            Company company = contact.getCompany();
            return company == null ? "-" : company.getName();
