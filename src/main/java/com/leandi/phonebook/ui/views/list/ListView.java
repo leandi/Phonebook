@@ -91,6 +91,7 @@ public class ListView extends VerticalLayout {
            Company company = contact.getCompany();
            return company == null ? "-" : company.getName();
         }).setSortable(true).setHeader("company");
+// set sortable doda možnost sortiranja
 
         grid.getColumns().forEach(col -> col.setAutoWidth(true));
 
