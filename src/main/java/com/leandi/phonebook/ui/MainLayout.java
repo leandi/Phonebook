@@ -22,13 +22,11 @@ public class MainLayout extends AppLayout {
     }
 
     private void createHeader() {
-        H1 logo = new H1("Vaadin CRM");
+        H1 logo = new H1("Telefonski imenik MOK");
         logo.addClassName("logo");
 
-        //Anchor logout = new Anchor("/logout", "Log out");
 
         HorizontalLayout header = new HorizontalLayout(new DrawerToggle(), logo);
-        //HorizontalLayout header = new HorizontalLayout(new DrawerToggle(), logo, logout);
         header.addClassName("header");
         header.setWidth("100%");
         header.expand(logo);
@@ -39,7 +37,7 @@ public class MainLayout extends AppLayout {
 
     private void createDrawer() {
         RouterLink listLink = new RouterLink("List", ListView.class);
-        listLink.setHighlightCondition(HighlightConditions.sameLocation());
+        //listLink.setHighlightCondition(HighlightConditions.sameLocation());
 
         addToDrawer(new VerticalLayout(
             listLink,
