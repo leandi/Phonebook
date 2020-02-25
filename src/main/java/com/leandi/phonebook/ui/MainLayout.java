@@ -25,9 +25,10 @@ public class MainLayout extends AppLayout {
         H1 logo = new H1("Vaadin CRM");
         logo.addClassName("logo");
 
-        Anchor logout = new Anchor("/logout", "Log out");
+        //Anchor logout = new Anchor("/logout", "Log out");
 
-        HorizontalLayout header = new HorizontalLayout(new DrawerToggle(), logo, logout);
+        HorizontalLayout header = new HorizontalLayout(new DrawerToggle(), logo);
+        //HorizontalLayout header = new HorizontalLayout(new DrawerToggle(), logo, logout);
         header.addClassName("header");
         header.setWidth("100%");
         header.expand(logo);
