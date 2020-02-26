@@ -81,16 +81,16 @@ public class ListView extends VerticalLayout {
     private void configureGrid() {
         grid.addClassName("contact-grid");
         grid.setSizeFull();
-        grid.removeColumnByKey("company");
-        grid.setColumns("firstName", "lastName", "phoneNumber");
-//        grid.setColumns();
-//        grid.addColumn(Contact::getFirstName).setHeader(new H1("imr"));
-//        grid.addColumn(Contact::getLastName).setHeader("Priimek");
-// to je branch read only mode
+//        grid.removeColumnByKey("company");
+//        grid.setColumns("firstName", "lastName", "phoneNumber");
+        grid.setColumns();
+        grid.addColumn(Contact::getFirstName).setSortable(true).setHeader("Ime");
+        grid.addColumn(Contact::getLastName).setSortable(true).setHeader("Priimek");
+        grid.addColumn(Contact::getPhoneNumber).setSortable(true).setHeader("Telefon");
         grid.addColumn(contact -> {
            Company company = contact.getCompany();
            return company == null ? "-" : company.getName();
-        }).setSortable(true).setHeader("company");
+        }).setSortable(true).setHeader("Urad ali služba");
 
         grid.getColumns().forEach(col -> col.setAutoWidth(true));
 

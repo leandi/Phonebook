@@ -19,21 +19,18 @@ public class MainLayout extends AppLayout {
 
     public MainLayout() {
         createHeader();
-        createDrawer();
+        //createDrawer();
     }
 
     private void createHeader() {
         H1 logo = new H1("Telefonski imenik MOK");
         logo.addClassName("logo");
-        //Image image = new Image("https://dummyimage.com/100x100/000/fff", "DummyImage");
         Image image = new Image("/img/logomok.png", "MOK Grb");
 
         HorizontalLayout header = new HorizontalLayout(new DrawerToggle(), image, logo);
         header.addClassName("header");
         header.setWidth("100%");
-        //header.add(image);
         header.expand(logo);
-
         header.setDefaultVerticalComponentAlignment(FlexComponent.Alignment.CENTER);
 
         addToNavbar(header);
@@ -41,11 +38,11 @@ public class MainLayout extends AppLayout {
 
     private void createDrawer() {
         RouterLink listLink = new RouterLink("List", ListView.class);
-        //listLink.setHighlightCondition(HighlightConditions.sameLocation());
+        listLink.setHighlightCondition(HighlightConditions.sameLocation());
 
         addToDrawer(new VerticalLayout(
-            listLink,
-            new RouterLink("Dashboard", DashboardView.class)
+            listLink
+            //new RouterLink("Dashboard", DashboardView.class)
         ));
     }
 
