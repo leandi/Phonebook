@@ -2,6 +2,7 @@ package com.leandi.phonebook.ui;
 
 import com.leandi.phonebook.ui.views.dashboard.DashboardView;
 import com.leandi.phonebook.ui.views.list.ListView;
+import com.leandi.phonebook.ui.views.updateForm.ListCompany;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.dependency.CssImport;
@@ -19,7 +20,7 @@ public class MainLayout extends AppLayout {
 
     public MainLayout() {
         createHeader();
-        //createDrawer();
+        createDrawer();
     }
 
     private void createHeader() {
@@ -41,8 +42,8 @@ public class MainLayout extends AppLayout {
         listLink.setHighlightCondition(HighlightConditions.sameLocation());
 
         addToDrawer(new VerticalLayout(
-            listLink
-            //new RouterLink("Dashboard", DashboardView.class)
+            listLink,
+            new RouterLink("Company", ListCompany.class)
         ));
     }
 

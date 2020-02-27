@@ -84,7 +84,9 @@ public class ContactService {
                         contact.setCompany(companies.get(r.nextInt(companies.size())));
                         contact.setStatus(Contact.Status.values()[r.nextInt(Contact.Status.values().length)]);
                         String phoneNumber = "6385";
+                        String gsmNumber = "031 600 852";
                         contact.setPhoneNumber(phoneNumber);
+                        contact.setGsmNumber(gsmNumber);
                         return contact;
                     }).collect(Collectors.toList()));
         }

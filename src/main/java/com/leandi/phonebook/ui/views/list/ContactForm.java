@@ -24,6 +24,7 @@ public class ContactForm extends FormLayout {
     TextField firstName = new TextField("Ime");
     TextField lastName = new TextField("Priimek");
     TextField phoneNumber = new TextField("Telefonska št.");
+    TextField gsmNumber = new TextField("Mobilna št.");
     ComboBox<Contact.Status> status = new ComboBox<>("Status");
     ComboBox<Company> company = new ComboBox<>("Urad ali služba");
 
@@ -45,6 +46,7 @@ public class ContactForm extends FormLayout {
             firstName,
             lastName,
             phoneNumber,
+            gsmNumber,
             status,
             company,
             createButtonsLayout()

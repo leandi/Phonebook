@@ -32,6 +32,14 @@ public class Contact extends AbstractEntity implements Cloneable {
     @NotEmpty
     private String phoneNumber = "";
 
+
+    @NotNull
+    private String gsmNumber = "";
+
+    public String getGsmNumber() { return gsmNumber; }
+
+    public void setGsmNumber(String gsmNumber) { this.gsmNumber = gsmNumber; }
+
     public String getPhoneNumber() {
         return phoneNumber;
     }
