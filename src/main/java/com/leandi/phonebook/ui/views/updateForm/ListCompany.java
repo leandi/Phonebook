@@ -4,9 +4,13 @@ package com.leandi.phonebook.ui.views.updateForm;
 import com.leandi.phonebook.backend.entity.Company;
 import com.leandi.phonebook.backend.service.CompanyService;
 import com.leandi.phonebook.ui.MainLayout;
+import com.leandi.phonebook.ui.views.list.ContactForm;
+import com.vaadin.flow.component.ComponentEvent;
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.gridpro.GridPro;
 import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
@@ -28,13 +32,41 @@ public class ListCompany extends VerticalLayout {
         configureGrid();
 
         formCompany = new CompanyForm();
+        formCompany.addListener(CompanyForm.SaveEvent.class, this::saveCompany);
+
         Div content = new Div(gridCompany, formCompany);
         content.addClassName("content");
         content.setSizeFull();
 
-        add(content);
+        add(getToolBar(), content);
         updateList();
+        closeEditor();
 
+    }
+
+    private  void saveCompany(CompanyForm.SaveEvent evt) {
+        companyService.save(evt.getCompany());
+        updateList();
+        closeEditor();
+    }
+
+    private HorizontalLayout getToolBar() {
+        Button addCompanyButton = new Button("Dodaj nov urad ali službo", click -> addCompany());
+
+        HorizontalLayout toolbar = new HorizontalLayout(addCompanyButton);
+        toolbar.addClassName("toolbar");
+        return toolbar;
+    }
+
+    private void deleteContact(CompanyForm.DeleteEvent evt) {
+        companyService.delete(evt.getCompany());
+        updateList();
+        closeEditor();
+    }
+
+    private void addCompany() {
+        gridCompany.asSingleSelect().clear();
+        editCompany(new Company());
     }
 
 
