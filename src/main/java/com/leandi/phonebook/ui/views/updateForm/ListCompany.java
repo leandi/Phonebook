@@ -15,7 +15,6 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
-
 @Route(value = "company", layout = MainLayout.class)
 @PageTitle("Vnos Uradov ali služb")
 public class ListCompany extends VerticalLayout {
@@ -33,6 +32,8 @@ public class ListCompany extends VerticalLayout {
 
         formCompany = new CompanyForm();
         formCompany.addListener(CompanyForm.SaveEvent.class, this::saveCompany);
+        formCompany.addListener(CompanyForm.CloseEvent.class, e -> closeEditor());
+        formCompany.addListener(CompanyForm.DeleteEvent.class, this::deleteCompany);
 
         Div content = new Div(gridCompany, formCompany);
         content.addClassName("content");
@@ -41,7 +42,12 @@ public class ListCompany extends VerticalLayout {
         add(getToolBar(), content);
         updateList();
         closeEditor();
+    }
 
+    private void deleteCompany(CompanyForm.DeleteEvent evt) {
+        companyService.delete(evt.getCompany());
+        updateList();
+        closeEditor();
     }
 
     private  void saveCompany(CompanyForm.SaveEvent evt) {

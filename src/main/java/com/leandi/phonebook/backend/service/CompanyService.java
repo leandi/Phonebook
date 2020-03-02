@@ -3,6 +3,7 @@ package com.leandi.phonebook.backend.service;
 import com.leandi.phonebook.backend.entity.Company;
 import com.leandi.phonebook.backend.entity.Contact;
 import com.leandi.phonebook.backend.repository.CompanyRepository;
+import com.leandi.phonebook.backend.repository.ContactRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -13,12 +14,14 @@ import java.util.logging.Logger;
 
 @Service
 public class CompanyService {
-
     private static final Logger LOGGER = Logger.getLogger(CompanyService.class.getName());
     private CompanyRepository companyRepository;
 
+
     public CompanyService(CompanyRepository companyRepository) {
+
         this.companyRepository = companyRepository;
+
     }
 
     public List<Company> findAll() {
