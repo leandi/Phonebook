@@ -38,12 +38,12 @@ public class MainLayout extends AppLayout {
     }
 
     private void createDrawer() {
-        RouterLink listLink = new RouterLink("List", ListView.class);
+        RouterLink listLink = new RouterLink("Telefonski imenik", ListView.class);
         listLink.setHighlightCondition(HighlightConditions.sameLocation());
 
         addToDrawer(new VerticalLayout(
             listLink,
-            new RouterLink("Company", ListCompany.class)
+            new RouterLink("Uradi ali službe", ListCompany.class)
         ));
     }
 

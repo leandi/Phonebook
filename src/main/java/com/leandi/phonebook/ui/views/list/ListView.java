@@ -61,12 +61,12 @@ public class ListView extends VerticalLayout {
     }
 
     private HorizontalLayout getToolBar() {
-        filterText.setPlaceholder("Filter by name...");
+        filterText.setPlaceholder("Iskanje po imenu...");
         filterText.setClearButtonVisible(true);
         filterText.setValueChangeMode(ValueChangeMode.LAZY);
         filterText.addValueChangeListener(e -> updateList());
 
-        Button addContactButton = new Button("Add contact", click -> addContact());
+        Button addContactButton = new Button("Dodaj kontakt", click -> addContact());
 
         HorizontalLayout toolbar = new HorizontalLayout(filterText, addContactButton);
         toolbar.addClassName("toolbar");
