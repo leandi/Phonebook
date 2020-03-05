@@ -7,9 +7,9 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class Contact extends AbstractEntity implements Cloneable {
 
-    public enum Status {
+/*    public enum Status {
         ImportedLead, NotContacted, Contacted, Customer, ClosedLost
-    }
+    }*/
 
     @NotNull
     @NotEmpty
@@ -23,9 +23,9 @@ public class Contact extends AbstractEntity implements Cloneable {
     @JoinColumn(name = "company_id")
     private Company company;
 
-    @Enumerated(EnumType.STRING)
+/*    @Enumerated(EnumType.STRING)
     @NotNull
-    private Contact.Status status;
+    private Contact.Status status;*/
 
     
     @NotNull
@@ -48,6 +48,7 @@ public class Contact extends AbstractEntity implements Cloneable {
         this.phoneNumber = phoneNumber;
     }
 
+/*
     public Status getStatus() {
         return status;
     }
@@ -55,6 +56,7 @@ public class Contact extends AbstractEntity implements Cloneable {
     public void setStatus(Status status) {
         this.status = status;
     }
+*/
 
     public String getLastName() {
         return lastName;

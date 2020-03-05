@@ -25,7 +25,7 @@ public class ContactForm extends FormLayout {
     TextField lastName = new TextField("Priimek");
     TextField phoneNumber = new TextField("Telefonska št.");
     TextField gsmNumber = new TextField("Mobilna št.");
-    ComboBox<Contact.Status> status = new ComboBox<>("Status");
+   // ComboBox<Contact.Status> status = new ComboBox<>("Status");
     ComboBox<Company> company = new ComboBox<>("Urad ali služba");
 
     Button save = new Button("Shrani");
@@ -38,7 +38,7 @@ public class ContactForm extends FormLayout {
         addClassName("contact-form");
 
         binder.bindInstanceFields(this);
-        status.setItems(Contact.Status.values());
+        //status.setItems(Contact.Status.values());
         company.setItems(companies);
         company.setItemLabelGenerator(Company::getName);
 
@@ -47,7 +47,7 @@ public class ContactForm extends FormLayout {
             lastName,
             phoneNumber,
             gsmNumber,
-            status,
+//            status,
             company,
             createButtonsLayout()
         );

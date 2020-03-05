@@ -70,7 +70,7 @@ public class ContactService {
             List<Company> companies = companyRepository.findAll();
             contactRepository.saveAll(
                 Stream.of("Gabrielle Patel", "Brian Robinson", "Eduardo Haugen",
-                    "Koen Johansen", "Alejandro Macdonald", "Angel Karlsson", "Yahir Gustavsson", "Haiden Svensson",
+                    "Sandi Kurtin", "Bogdan Stibilj", "Jadran Prodan", "Davor Deranja", "Emanuel Lipovac",
                     "Emily Stewart", "Corinne Davis", "Ryann Davis", "Yurem Jackson", "Kelly Gustavsson",
                     "Eileen Walker", "Katelyn Martin", "Israel Carlsson", "Quinn Hansson", "Makena Smith",
                     "Danielle Watson", "Leland Harris", "Gunner Karlsen", "Jamar Olsson", "Lara Martin",
@@ -82,7 +82,7 @@ public class ContactService {
                         contact.setFirstName(split[0]);
                         contact.setLastName(split[1]);
                         contact.setCompany(companies.get(r.nextInt(companies.size())));
-                        contact.setStatus(Contact.Status.values()[r.nextInt(Contact.Status.values().length)]);
+//                        contact.setStatus(Contact.Status.values()[r.nextInt(Contact.Status.values().length)]);
                         String phoneNumber = "6385";
                         String gsmNumber = "031 600 852";
                         contact.setPhoneNumber(phoneNumber);
