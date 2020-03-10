@@ -10,6 +10,7 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.formlayout.FormLayout;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.textfield.EmailField;
 import com.vaadin.flow.component.textfield.TextField;
@@ -20,7 +21,8 @@ import com.vaadin.flow.shared.Registration;
 import java.util.List;
 
 public class ContactForm extends FormLayout {
-
+/*    Notification notification = new Notification(
+            "Napaka", 3000);*/
     TextField firstName = new TextField("Ime");
     TextField lastName = new TextField("Priimek");
     TextField phoneNumber = new TextField("Telefonska št.");
@@ -77,6 +79,11 @@ public class ContactForm extends FormLayout {
     private void validateAndSave() {
         if (binder.isValid()) {
             fireEvent(new SaveEvent(this, binder.getBean()));
+            Notification.show("OK!");
+        }
+        else {
+
+            Notification.show("NI OK!");
         }
     }
 

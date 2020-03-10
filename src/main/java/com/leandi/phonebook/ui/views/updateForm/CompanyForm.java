@@ -10,6 +10,7 @@ import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.formlayout.FormLayout;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.BeanValidationBinder;
@@ -57,6 +58,7 @@ public class CompanyForm extends FormLayout {
     private void validateAndSave() {
         if (binder.isValid()) {
             fireEvent(new SaveEvent(this, binder.getBean()));
+            Notification.show("OK!");
         }
     }
 
