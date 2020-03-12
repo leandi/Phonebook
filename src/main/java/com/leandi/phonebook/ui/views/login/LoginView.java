@@ -2,6 +2,7 @@ package com.leandi.phonebook.ui.views.login;
 
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.login.LoginForm;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
@@ -12,7 +13,7 @@ import java.util.Collections;
 
 @Route("login")
 @PageTitle("Login | Vaadin CRM")
-public class LoginView extends VerticalLayout implements BeforeEnterObserver {
+public class LoginView extends HorizontalLayout implements BeforeEnterObserver {
 
     LoginForm login = new LoginForm();
 
@@ -20,8 +21,8 @@ public class LoginView extends VerticalLayout implements BeforeEnterObserver {
         addClassName("login-view");
         setSizeFull();
 
-        setJustifyContentMode(JustifyContentMode.CENTER);
-        setAlignItems(Alignment.CENTER);
+        //setJustifyContentMode(JustifyContentMode.CENTER);
+       //setAlignItems(Alignment.CENTER);
 
         login.setAction("login");
 
