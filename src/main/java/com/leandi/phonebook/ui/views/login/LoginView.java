@@ -31,7 +31,7 @@ public class LoginView extends VerticalLayout implements BeforeEnterObserver {
     Grid<Contact> grid = new Grid<>(Contact.class);
     private ContactService contactService;
     TextField filterText = new TextField();
-    TextField filterText2 = new TextField();
+    //TextField filterText2 = new TextField();
     H1 logo = new H1("Telefonski imenik MOK");
     public LoginView(ContactService contactService,
                      CompanyService companyService) {
@@ -39,7 +39,7 @@ public class LoginView extends VerticalLayout implements BeforeEnterObserver {
 
         this.contactService = contactService;
 
-        //addClassName("list-view");
+        addClassName("list-view");
         //addClassName("login-view");
         setSizeFull();
         configureGrid();
@@ -51,12 +51,15 @@ public class LoginView extends VerticalLayout implements BeforeEnterObserver {
         //prevzame spring v roke zadevo.
         login.setAction("login");
         Div content = new Div(grid, login);
-        //content.addClassName("content");
+        content.addClassName("content");
         content.setSizeFull();
-
+        Image image = new Image("/img/logomok.png", "MOK Grb");
+        logo.addClassName("logo");
 
         //new H1("Telefonski imenik MOK"),
         add(
+                image,
+                logo,
                 getToolBar(),
                 content);
         updateList();
@@ -85,13 +88,12 @@ public class LoginView extends VerticalLayout implements BeforeEnterObserver {
         grid.setItems(contactService.findAll(filterText.getValue()));
     }
     private HorizontalLayout getToolBar() {
-        H1 logo = new H1("Telefonski imenik MOK");
         filterText.setPlaceholder("Iskanje po imenu...");
         filterText.setClearButtonVisible(true);
         filterText.setValueChangeMode(ValueChangeMode.LAZY);
         filterText.addValueChangeListener(e -> updateList());
 
-        HorizontalLayout toolbar = new HorizontalLayout(logo ,filterText);
+        HorizontalLayout toolbar = new HorizontalLayout(filterText);
         toolbar.addClassName("toolbar");
         return toolbar;
     }
