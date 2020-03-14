@@ -47,7 +47,7 @@ public class LoginView extends VerticalLayout implements BeforeEnterObserver {
         //setJustifyContentMode(JustifyContentMode.CENTER);
         //setAlignItems(Alignment.CENTER);
 
-        //to pove springu da je security login in pol tu naprej
+        //login.setAction("login"); to pove springu da je security login in pol tu naprej
         //prevzame spring v roke zadevo.
         login.setAction("login");
         Div content = new Div(grid, login);
