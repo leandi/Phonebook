@@ -57,8 +57,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	public UserDetailsService userDetailsService() {
 		UserDetails user =
-				User.withUsername("user")
-						.password("{noop}password")
+				User.withUsername("admin")
+						.password("{noop}mok2020")
 						.roles("USER")
 						.build();
 
@@ -89,6 +89,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				"/icons/**",
 				"/images/**",
 				"/styles/**",
+				"/img/**",
 
 				// (development mode) static resources
 				"/frontend/**",

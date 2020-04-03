@@ -127,10 +127,11 @@
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
         </dependency>
-<!--        <dependency>
+        <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-        </dependency>-->
+            <scope>runtime</scope>
+        </dependency>
     </dependencies>
 
     <build>
