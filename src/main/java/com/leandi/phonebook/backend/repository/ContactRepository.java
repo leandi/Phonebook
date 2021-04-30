@@ -12,11 +12,21 @@ public interface ContactRepository extends JpaRepository<Contact, Long> {
             "where lower(c.firstName) like lower(concat('%', :searchTerm, '%')) " +
             "or lower(c.lastName) like lower(concat('%', :searchTerm, '%'))" +
             "or c.phoneNumber like concat('%', :searchTerm, '%')" +
-            "or c.gsmNumber like concat('%', :searchTerm, '%')")
+            "or c.gsmNumber like concat('%', :searchTerm, '%')" +
+            "or lower(c.company.name) like lower(concat('%', :searchTerm, '%'))")
+/*    @Query("select c from Contact c " +
+            "where lower(c.firstName) like lower(concat('%', :searchTerm, '%')) " +
+            "or lower(c.lastName) like lower(concat('%', :searchTerm, '%')) " +
+            "or c.phoneNumber like concat('%', :searchTerm, '%') " +
+            "or c.gsmNumber like concat('%', :searchTerm, '%')")*/
     List<Contact> search(@Param("searchTerm") String searchTerm);
 }
 
-
+/*@Query("select c from Contact c " +
+        "where lower(c.firstName) like lower(concat('%', :searchTerm, '%')) " +
+        "or lower(c.lastName) like lower(concat('%', :searchTerm, '%'))" +
+        "or c.phoneNumber like concat('%', :searchTerm, '%')" +
+        "or c.gsmNumber like concat('%', :searchTerm, '%')")*/
 
 /*
 @Query("select c from Contact c " +

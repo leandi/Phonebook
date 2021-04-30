@@ -32,7 +32,7 @@ public class LoginView extends VerticalLayout implements BeforeEnterObserver {
     private ContactService contactService;
     TextField filterText = new TextField();
     //TextField filterText2 = new TextField();
-    H1 logo = new H1("Telefonski imenik MOK");
+    H1 logo = new H1("Telefonski imenik MOK - login!!");
     public LoginView(ContactService contactService,
                      CompanyService companyService) {
 
